@@ -1,6 +1,6 @@
-# Note-Taker App
+# Note-Taker
 
-The Note-Taker App is a simple web application that allows users to create, save, and delete notes. It provides a user-friendly interface for managing personal notes, making it convenient for organizing thoughts, ideas, and reminders.
+The Note-Taker is a simple web application that allows users to create, save, and delete notes. It provides a user-friendly interface for managing personal notes, making it convenient for organizing thoughts, ideas, and reminders.
 
 
 ## Features
@@ -13,7 +13,7 @@ The Note-Taker App is a simple web application that allows users to create, save
 
 ## Technologies Used
 
-The Note-Taker App is built using the following technologies:
+The Note-Taker is built using the following technologies:
 
 - Front-end:
   - HTML
@@ -53,7 +53,7 @@ npm start
 ```
 
 
-5. Open your web browser and visit `http://localhost:3001` to access the Note-Taker App.
+5. Open your web browser and visit `http://localhost:3001` to access the Note-Taker.
 
 ## Usage
 
