@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const dbFilePath = path.join(__dirname, 'public', 'db', 'db.json');
+const dbFilePath = path.join(__dirname, 'db', 'db.json');
 
 // HTML Routes
 app.get('/notes', (req, res) => {
@@ -21,9 +21,9 @@ app.get('*', (req, res) => {
 });
 
 // Require the modules
-const { v4: uuidv4 } = require('./uuid');
-const { readAndAppend, readFromFile, readAndRemove } = require('./fsUtils');
-const notesRouter = require('./notes');
+const { v4: uuidv4 } = require('./helpers/uuid');
+const { readAndAppend, readFromFile, readAndRemove } = require('./helpers/fsUtils');
+const notesRouter = require('./routes/routes');
 
 // Register the notesRouter middleware
 app.use('/api/notes', notesRouter);

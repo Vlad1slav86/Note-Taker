@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { readAndAppend, readFromFile, readAndRemove } = require('../helpers/fsUtils');
-const uuid = require('../helpers/uuid');
+const { v4: uuidv4 } = require('uuid');
 
 // GET Route for retrieving all the notes
 router.get('/notes', (req, res) =>
@@ -15,7 +15,7 @@ router.post('/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      id: uuid(),
+      id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -27,7 +27,7 @@ router.post('/notes', (req, res) => {
 
     res.json(response);
   } else {
-    res.json('Error: Title and Text are required.');
+    res.status(400).json('Error: Title and Text are required.');
   }
 });
 

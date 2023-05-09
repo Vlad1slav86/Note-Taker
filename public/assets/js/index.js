@@ -170,33 +170,14 @@ const renderNoteList = async (notes) => {
   }
 };
 
-
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.location.pathname === '/notes') {
-    noteTitle = document.querySelector('.note-title');
-    noteText = document.querySelector('.note-textarea');
-    saveNoteBtn = document.querySelector('.save-note');
-    newNoteBtn = document.querySelector('.new-note');
-    noteList = document.querySelectorAll('.list-container .list-group');
-    
-    console.log('noteTitle:', noteTitle);
-    console.log('noteText:', noteText);
-    console.log('saveNoteBtn:', saveNoteBtn);
-    console.log('newNoteBtn:', newNoteBtn);
-    
-    // Add event listeners
-    saveNoteBtn.addEventListener('click', handleNoteSave);
-    newNoteBtn.addEventListener('click', handleNewNoteView);
-    noteTitle.addEventListener('keyup', handleRenderSaveBtn);
-    noteText.addEventListener('keyup', handleRenderSaveBtn);
-  }
-  getAndRenderNotes();
-});
+if (window.location.pathname === '/notes') {
+  saveNoteBtn.addEventListener('click', handleNoteSave);
+  newNoteBtn.addEventListener('click', handleNewNoteView);
+  noteTitle.addEventListener('keyup', handleRenderSaveBtn);
+  noteText.addEventListener('keyup', handleRenderSaveBtn);
+}
 
-
-
-
-
+getAndRenderNotes();
