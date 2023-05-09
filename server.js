@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-
+const notesRouter = require('./routes/routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,17 +16,15 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
 
+
+app.use('/api', notesRouter);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Require the modules
-const { v4: uuidv4 } = require('./helpers/uuid');
-const { readAndAppend, readFromFile, readAndRemove } = require('./helpers/fsUtils');
-const notesRouter = require('./routes/routes');
 
-// Register the notesRouter middleware
-app.use('/api/notes', notesRouter);
+
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
